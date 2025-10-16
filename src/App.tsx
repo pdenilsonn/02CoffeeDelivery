@@ -1,13 +1,14 @@
-import { Header } from './componentes/header'
-import { Home } from './componentes/home'
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './components/Router'
 import './global.css'
 
 export function App() {
   return (
     <div>
-      <Header />
-      <Home />
-        
+      <BrowserRouter>
+      <Router />
+      <h1>Hello World!</h1>
+      </BrowserRouter>
     </div>
   )
 }
