@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import { Router } from './components/Router'
+import { Router } from './Router'
 import './global.css'
 
 export function App() {
@@ -7,7 +7,6 @@ export function App() {
     <div>
       <BrowserRouter>
       <Router />
-      <h1>Hello World!</h1>
       </BrowserRouter>
     </div>
   )
