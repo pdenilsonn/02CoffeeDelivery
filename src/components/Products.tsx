@@ -34,7 +34,7 @@ export function Products() {
         }))
    }
    
-    
+    k
 
     return (
         <div>
