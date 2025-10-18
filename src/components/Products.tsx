@@ -20,6 +20,22 @@ export function Products() {
         .catch((err) => console.log("Erro: ", err))
     }, [])
 
+   const [amountItem, setAmountItems] = useState<{[key: number] : number}>({})
+
+   function addItems(id: number) {
+        setAmountItems((prev) => ({
+            ...prev, [id]: (prev [id] || 0) + 1
+        }))
+   }
+
+   function removeitems(id: number) {
+        setAmountItems((prev) => ({
+            ...prev, [id]: prev[id] > 0 ? prev[id] - 1 : 0
+        }))
+   }
+   
+    
+
     return (
         <div>
             <h2 className="subtitle">Nossos Cafés</h2>
@@ -39,12 +55,12 @@ export function Products() {
                         <p className="text-base-subtitle text-[20px] font-bold ">{repo.name}</p>
                         <p className="text-base-label text-[14px]">{repo.resume}</p>
                     </div>
-                    <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center justify-between gap-2">
                         <div>R$ <span className="font-bold text-2xl">{repo.price}</span></div>
-                        <div className="flex items-center p-2 gap-[1rem] rounded-[6px] bg-base-button">
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
+                        <div className="flex items-center p-1 gap-[0.5rem] rounded-[6px] bg-base-button">
+                            <button onClick={() => removeitems(repo.id)} className="cursor-pointer p-2"> - </button>
+                            <span>{amountItem[repo.id]}</span>
+                            <button className="cursor-pointer p-2" onClick={() => addItems(repo.id)} > + </button>
                             <div className="flex p-2 rounded-[6px] bg-purple-dark items-center cursor-pointer">
                             <ShoppingCart size={18} weight="fill" color="white" />
                         </div>
